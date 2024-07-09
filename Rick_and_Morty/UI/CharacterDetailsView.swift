@@ -8,11 +8,40 @@
 import SwiftUI
 
 struct CharacterDetailsView: View {
+    let characterDetails: CharacterDetailsModel
+    
+    init(characterDetails: CharacterDetailsModel) {
+        self.characterDetails = characterDetails
+        UILabel.appearance(whenContainedInInstancesOf: [UINavigationBar.self]).adjustsFontSizeToFitWidth = true
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView(.vertical) {
+            VStack(alignment: .leading, spacing: 20) {
+                APIImage(imageUrl: characterDetails.characterUrl)
+                ForEach(characterDetails.rowModels, id: \.self) { element in
+                    HStack(alignment: .firstTextBaseline, spacing: 20, content: {
+                        Text(element.leadingText)
+                            .borderedText()
+                        
+                        Spacer()
+                        
+                        Text(element.trailingText)
+                            .bold()
+                    })
+                }
+                
+                ForEach(characterDetails.episodes, id: \.self) {
+                    Text($0)
+                        .frame(alignment: .center)
+                }
+            }
+            .padding()
+            .navigationTitle(characterDetails.characterName)
+        }
     }
 }
 
 #Preview {
-    CharacterDetailsView()
+    CharacterDetailsView(characterDetails: CharacterDetailsModel.previewVersion)
 }
