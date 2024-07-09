@@ -37,10 +37,6 @@ jobs:
       - name: Clean project
         run: xcodebuild clean -workspace Rick_and_Morty.xcworkspace -scheme Rick_and_Morty -configuration Release
 
-      - name: Clean
-        run: |
-          xcodebuild clean
-
       - name: Build
         env:
           scheme: ${{ 'default' }}
