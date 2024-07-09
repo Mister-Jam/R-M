@@ -81,13 +81,13 @@ jobs:
             -configuration Debug \
             -destination 'generic/platform=iOS'
 
-      - name: Run tests
+      - name: Run unit tests
         run: |
           xcodebuild test \
             -workspace Rick_and_Morty.xcworkspace \
             -scheme Rick_and_Morty \
             -configuration Debug \
-            -allowProvisioningUpdates \
+            -only-testing:Rick_and_MortyTests \
             -destination 'platform=iOS Simulator,name=iPhone 13,OS=latest'
               
       - name: Test
