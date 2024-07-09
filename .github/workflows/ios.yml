@@ -11,6 +11,10 @@ jobs:
     name: Build and Test default scheme using any available iPhone simulator
     runs-on: macos-latest
 
+    env:
+      CODE_SIGNING_IDENTITY: "iPhone Developer"
+      DEVELOPMENT_TEAM: "H7HDPYJ6FS"
+
     steps:
       - name: check Xcode version
         run: /usr/bin/xcodebuild -version
