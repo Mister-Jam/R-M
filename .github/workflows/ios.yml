@@ -54,6 +54,7 @@ jobs:
             -workspace Rick_and_Morty.xcworkspace \
             -scheme Rick_and_Morty \
             -configuration Debug \
+            -allowProvisioningUpdates \
             -destination 'generic/platform=iOS'
 
       - name: Run tests
