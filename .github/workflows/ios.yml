@@ -88,7 +88,8 @@ jobs:
             -scheme Rick_and_Morty \
             -configuration Debug \
             -only-testing:Rick_and_MortyTests \
-            -destination 'platform=iOS Simulator,name=iPhone 13,OS=latest'
+            -destination 'platform=iOS Simulator,name=iPhone 13,OS=latest' \
+            CODE_SIGNING_ALLOWED=NO
               
       - name: Test
         env:
