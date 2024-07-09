@@ -83,7 +83,7 @@ jobs:
             -workspace Rick_and_Morty.xcworkspace \
             -scheme Rick_and_Morty \
             -configuration Debug \
-            -destination 'generic/platform=iOS'
+            -destination 'platform=iOS Simulator,name=iPhone 13,OS=latest'
               
       - name: Test
         env:
