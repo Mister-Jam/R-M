@@ -81,15 +81,15 @@ jobs:
             -configuration Debug \
             -destination 'generic/platform=iOS'
 
-      - name: Run unit tests
-        run: |
-          xcodebuild test \
-            -workspace Rick_and_Morty.xcworkspace \
-            -scheme Rick_and_Morty \
-            -configuration Debug \
-            -only-testing:Rick_and_MortyTests \
-            -destination 'platform=iOS Simulator,name=iPhone 13,OS=latest' \
-            CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
+      # - name: Run unit tests
+      #   run: |
+      #     xcodebuild test \
+      #       -workspace Rick_and_Morty.xcworkspace \
+      #       -scheme Rick_and_Morty \
+      #       -configuration Debug \
+      #       -only-testing:Rick_and_MortyTests \
+      #       -destination 'platform=iOS Simulator,name=iPhone 13,OS=latest' \
+      #       CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
               
       - name: Test
         env:
