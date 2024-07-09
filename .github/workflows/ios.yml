@@ -17,6 +17,11 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v4
+      
+      - name: Set up Ruby
+        uses: actions/setup-ruby@v1
+        with:
+          ruby-version: '3.3.2'
 
       - name: Install Bundler
         run: gem install bundler
@@ -30,6 +35,9 @@ jobs:
             Build/Build/Products
           key: ${{ runner.os }}-deps-v1-${{ hashFiles('BILDsolid.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
           restore-keys: ${{ runner.os }}-deps-v1-
+
+      - name: Clean project
+        run: xcodebuild clean -workspace Rick_and_Morty.xcworkspace -scheme Rick_and_Morty -configuration Release
 
       - name: Clean
         run: |
