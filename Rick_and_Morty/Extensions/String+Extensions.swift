@@ -6,3 +6,13 @@
 //
 
 import Foundation
+
+extension String {
+    static let emptyString = ""
+}
+
+extension String? {
+    var isNotNil: Bool {
+        self != nil
+    }
+}
