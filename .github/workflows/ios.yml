@@ -13,7 +13,7 @@ jobs:
 
     env:
       CODE_SIGNING_IDENTITY: "iPhone Developer"
-      DEVELOPMENT_TEAM: "H7HDPYJ6FS"
+      DEVELOPMENT_TEAM: "25KXZWK48G"
 
     steps:
       - name: check Xcode version
@@ -45,7 +45,7 @@ jobs:
         run: xcodebuild -resolvePackageDependencies -workspace Rick_and_Morty.xcworkspace -scheme Rick_and_Morty
 
       - name: Build project
-        run: xcodebuild build -workspace Rick_and_Morty.xcworkspace -scheme Rick_and_Morty -configuration Debug IPHONEOS_DEPLOYMENT_TARGET=17.0 -allowProvisioningUpdates
+        run: xcodebuild build -workspace Rick_and_Morty.xcworkspace -scheme Rick_and_Morty -configuration Debug IPHONEOS_DEPLOYMENT_TARGET=17.0 -allowProvisioningUpdates DEVELOPMENT_TEAM=25KXZWK48G
 
       - name: Run tests
         run: xcodebuild test -workspace Rick_and_Morty.xcworkspace -scheme Rick_and_Morty -destination 'platform=iOS Simulator,name=iPhone 13,OS=latest' IPHONEOS_DEPLOYMENT_TARGET=17.0 -allowProvisioningUpdates
