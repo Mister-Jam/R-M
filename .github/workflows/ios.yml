@@ -37,6 +37,15 @@ jobs:
       - name: Clean project
         run: xcodebuild clean -workspace Rick_and_Morty.xcworkspace -scheme Rick_and_Morty -configuration Release
 
+      - name: Resolve Swift packages
+        run: xcodebuild -resolvePackageDependencies -workspace Rick_and_Morty.xcworkspace -scheme Rick_and_Morty
+
+      - name: Build project
+        run: xcodebuild build -workspace Rick_and_Morty.xcworkspace -scheme Rick_and_Morty -configuration Release
+
+      - name: Run tests
+        run: xcodebuild test -workspace Rick_and_Morty.xcworkspace -scheme Rick_and_Morty -destination 'platform=iOS Simulator,name=iPhone 13,OS=latest'
+      
       - name: Build
         env:
           scheme: ${{ 'default' }}
