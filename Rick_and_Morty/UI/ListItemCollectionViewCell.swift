@@ -48,7 +48,12 @@ final class ListItemCollectionViewCell: UICollectionViewCell {
         titleLabel.positionView(
             topAnchor: imageView.bottomAnchor,
             leadingAnchor: contentView.leadingAnchor,
+            trailingAnchor: contentView.trailingAnchor,
             padding: .init(top: 10, left: 8, bottom: .zero, right: 8))
+        titleLabel.numberOfLines = 1
+        titleLabel.adjustsFontSizeToFitWidth = true
+        titleLabel.minimumScaleFactor = 0.7
+        titleLabel.layer.masksToBounds = true
     }
     
     func setupCellData(with model: ListItemCellModel) {

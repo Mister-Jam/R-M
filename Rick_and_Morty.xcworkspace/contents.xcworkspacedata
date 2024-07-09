@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:RickAndMortyClient">
+   </FileRef>
+   <FileRef
       location = "group:Rick_and_Morty.xcodeproj">
    </FileRef>
 </Workspace>
