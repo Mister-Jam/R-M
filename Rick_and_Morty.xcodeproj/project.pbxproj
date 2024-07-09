@@ -28,7 +28,6 @@
 		C471FA2C2C3BE2BA000909A0 /* Rick_and_MortyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C471FA2B2C3BE2BA000909A0 /* Rick_and_MortyUITestsLaunchTests.swift */; };
 		C471FA3A2C3BEC95000909A0 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C471FA392C3BEC95000909A0 /* Coordinator.swift */; };
 		C471FA3D2C3BF636000909A0 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C471FA3C2C3BF636000909A0 /* Kingfisher */; };
-		C4940CA22C3C1FD7008C0B09 /* RickAndMortyClient in Frameworks */ = {isa = PBXBuildFile; productRef = C4940CA12C3C1FD7008C0B09 /* RickAndMortyClient */; };
 		C4940CA52C3C679E008C0B09 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4940CA42C3C679E008C0B09 /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,7 +81,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C4940CA22C3C1FD7008C0B09 /* RickAndMortyClient in Frameworks */,
 				C471FA3D2C3BF636000909A0 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -233,7 +231,6 @@
 			name = Rick_and_Morty;
 			packageProductDependencies = (
 				C471FA3C2C3BF636000909A0 /* Kingfisher */,
-				C4940CA12C3C1FD7008C0B09 /* RickAndMortyClient */,
 			);
 			productName = Rick_and_Morty;
 			productReference = C471FA052C3BE2B6000909A0 /* Rick_and_Morty.app */;
@@ -723,10 +720,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C471FA3B2C3BF636000909A0 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
-		};
-		C4940CA12C3C1FD7008C0B09 /* RickAndMortyClient */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = RickAndMortyClient;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
