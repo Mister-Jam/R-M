@@ -38,7 +38,11 @@ final class ListViewModel {
                 self?.isFetchInProgress = false
                 switch response {
                 case .success(let result):
-                    self?.listData += result
+                    if page == nil {
+                        self?.listData = result
+                    } else {
+                        self?.listData += result
+                    }
                     self?.didFetchResultData?()
                 case .failure(let error):
                     self?.didThrowError?(error.localizedDescription)

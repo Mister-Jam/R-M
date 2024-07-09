@@ -10,6 +10,7 @@ import UIKit
 final class ListViewController: UIViewController {
     
     private let viewModel: ListViewModel
+    private var refreshControl: UIRefreshControl?
     
     init(viewModel: ListViewModel) {
         self.viewModel = viewModel
@@ -45,7 +46,9 @@ final class ListViewController: UIViewController {
     
     private func bindViewModel() {
         viewModel.didThrowError = { [weak self] errorMessage in
-            self?.showErrorPopup(message: errorMessage)
+            DispatchQueue.main.async {
+                self?.showErrorPopup(message: errorMessage)
+            }
         }
         
         viewModel.didFetchResultData = { [weak self] in
@@ -65,6 +68,19 @@ final class ListViewController: UIViewController {
                 bottom: 20,
                 right: 20))
         setupCollectionView()
+        setupRefreshControl()
+    }
+    
+    private func setupRefreshControl() {
+        refreshControl = UIRefreshControl()
+        guard let refreshControl else { return }
+        collectionView.refreshControl = refreshControl
+        collectionView.refreshControl?.addTarget(self, action: #selector(reloadData), for: .valueChanged)
+    }
+    
+    @objc private func reloadData() {
+        collectionView.refreshControl?.endRefreshing()
+        viewModel.fetchListData()
     }
     
     func collectionViewLayout() -> UICollectionViewCompositionalLayout {
