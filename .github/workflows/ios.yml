@@ -49,7 +49,12 @@ jobs:
         run: xcodebuild -resolvePackageDependencies -workspace Rick_and_Morty.xcworkspace -scheme Rick_and_Morty
 
       - name: Build project
-        run: xcodebuild build -workspace Rick_and_Morty.xcworkspace -scheme Rick_and_Morty -configuration Debug IPHONEOS_DEPLOYMENT_TARGET=17.0 -allowProvisioningUpdates DEVELOPMENT_TEAM=25KXZWK48G
+        run: |
+          xcodebuild build \
+            -workspace Rick_and_Morty.xcworkspace \
+            -scheme Rick_and_Morty \
+            -configuration Debug \
+            -destination 'generic/platform=iOS'
 
       - name: Run tests
         run: xcodebuild test -workspace Rick_and_Morty.xcworkspace -scheme Rick_and_Morty -destination 'platform=iOS Simulator,name=iPhone 13,OS=latest' IPHONEOS_DEPLOYMENT_TARGET=17.0 -allowProvisioningUpdates
