@@ -12,8 +12,12 @@ jobs:
     runs-on: macos-latest
 
     env:
+      APP_IDENTIFIER: "com.KingBileygr.Rick-and-Morty"
+      PROFILE_NAME: "James Nwankwo"
       CODE_SIGNING_IDENTITY: "iPhone Developer"
       DEVELOPMENT_TEAM: "25KXZWK48G"
+      APPLE_ID: ${{ secrets.APPLE_ID }}
+      APPLE_PASSWORD: ${{ secrets.APPLE_PASSWORD }}
 
     steps:
       - name: check Xcode version
