@@ -31,6 +31,9 @@ jobs:
           key: ${{ runner.os }}-deps-v1-${{ hashFiles('BILDsolid.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved') }}
           restore-keys: ${{ runner.os }}-deps-v1-
 
+      - name: Delete Package.resolved
+        run: rm -f Rick_and_Morty.xcworkspace/xcshareddata/swiftpm/Package.resolved
+
       - name: Clean project
         run: xcodebuild clean -workspace Rick_and_Morty.xcworkspace -scheme Rick_and_Morty -configuration Release
 
