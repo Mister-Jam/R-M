@@ -88,8 +88,7 @@ jobs:
 
       - name: Run unit tests
         run: >-
-          xcodebuild test -workspace Rick_and_Morty.xcworkspace
-            -scheme Rick_and_Morty -destination 'platform=iOS Simulator,name=iPhone SE (2nd generation),OS=15.2'
+          xcodebuild test -workspace Rick_and_Morty.xcworkspace -scheme Rick_and_Morty -destination 'platform=iOS Simulator,name=iPhone SE (2nd generation),OS=15.2'
         # |
         #   xcodebuild test-without-building \
         #     -workspace Rick_and_Morty.xcworkspace \
