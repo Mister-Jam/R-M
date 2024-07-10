@@ -93,6 +93,6 @@ jobs:
             -scheme Rick_and_Morty \
             -configuration Debug \
             -only-testing:Rick_and_MortyTests \
-            -test-without-building \
+            -allowProvisioningUpdates  \
+            -allowProvisioningDeviceRegistration \
             -destination 'platform=iOS Simulator,name=iPhone 13,OS=latest' \
-            CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO CODE_SIGNING_ALLOWED=NO
