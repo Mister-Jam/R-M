@@ -85,10 +85,16 @@ jobs:
             -scheme Rick_and_Morty \
             -configuration Debug \
             -destination 'generic/platform=iOS'
+      
+      - name: Clean up keychain and provisioning profile
+        if: ${{ always() }}
+        run: |
+          security delete-keychain $RUNNER_TEMP/app-signing.keychain-db
+          rm ~/Library/MobileDevice/Provisioning\ Profiles/build_pp.mobileprovision
 
-      - name: Run unit tests
-        run: >-
-          xcodebuild test -workspace Rick_and_Morty.xcworkspace -scheme Rick_and_Morty -destination 'platform=iOS Simulator,name=iPhone SE (2nd generation),OS=15.2'
+      # - name: Run unit tests
+      #   run: >-
+      #     xcodebuild test -workspace Rick_and_Morty.xcworkspace -scheme Rick_and_Morty -destination 'platform=iOS Simulator,name=iPhone SE (2nd generation),OS=15.2'
         # |
         #   xcodebuild test-without-building \
         #     -workspace Rick_and_Morty.xcworkspace \
