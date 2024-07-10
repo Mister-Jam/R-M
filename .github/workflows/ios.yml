@@ -92,14 +92,14 @@ jobs:
           security delete-keychain $RUNNER_TEMP/app-signing.keychain-db
           rm ~/Library/MobileDevice/Provisioning\ Profiles/build_pp.mobileprovision
 
-      # - name: Run unit tests
-      #   run: >-
-      #     xcodebuild test -workspace Rick_and_Morty.xcworkspace -scheme Rick_and_Morty -destination 'platform=iOS Simulator,name=iPhone SE (2nd generation),OS=15.2'
-        # |
-        #   xcodebuild test-without-building \
-        #     -workspace Rick_and_Morty.xcworkspace \
-        #     -scheme Rick_and_Morty \
-        #     -only-testing:Rick_and_MortyTests \
-        #     -skip-testing:Rick_and_MortyUITests \
-        #     -destination 'platform=iOS Simulator,name=iPhone 13,OS=latest' \
-        #     CODE_SIGNING_ALLOWED=NO
+      - name: Run unit tests
+        # run: >-
+        #   xcodebuild test -workspace Rick_and_Morty.xcworkspace -scheme Rick_and_Morty -destination 'platform=iOS Simulator,name=iPhone SE (2nd generation),OS=15.2'
+        run: |
+          xcodebuild test-without-building \
+            -workspace Rick_and_Morty.xcworkspace \
+            -scheme Rick_and_Morty \
+            -only-testing:Rick_and_MortyTests \
+            -skip-testing:Rick_and_MortyUITests \
+            -destination 'platform=iOS Simulator,name=iPhone 13,OS=latest' \
+            CODE_SIGNING_ALLOWED=NO
